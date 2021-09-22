@@ -1,0 +1,75 @@
+.sidePanel {
+  position: relative;
+}
+
+.filterButton {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+  background-color: #a9c25d;
+  border-radius: 5px;
+  text-transform: capitalize;
+  color: #416a59;
+}
+
+.active {
+  background-color: orange;
+  color:black;
+}
+
+.tagTitle {
+  color: #416a59;
+}
+
+.sidePanel {
+  padding-top: 10px;
+  padding: 5px;
+  border-radius: 2%;
+  margin: 2%;
+  position: absolute; 
+  max-height: 50%;
+  width: 20%;
+  left: 20px;
+  z-index: 1;
+  background-color: #f5eec2;
+  overflow: scroll;
+  text-align: center;
+}
+
+.EventPopup {
+  color: #416a59;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
+  position: absolute;
+  height: 80%; 
+  width: 80%; 
+  right: 10%;
+  top: 10%;
+  z-index: 1;
+  background-color: #f5eec2;
+  border-width: 2px;
+  overflow: scroll;
+  padding:20px;
+}
+
+.popupCloseButton {
+  position:absolute;
+  right:20px;
+}
+
+.tags {
+  text-align: center;
+}
+
+.eventImage {
+  text-align: center;
+  padding:10px;
+}
+
+h2 {
+  text-align: center;
+}
+
+a {
+  color: #39395f;
+}

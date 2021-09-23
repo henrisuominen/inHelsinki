@@ -1,8 +1,6 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react'
-import dotenv from 'dotenv'
-
-dotenv.config()
+require('dotenv').config()
 
 const APIkey = process.env.REACT_APP_MAP_API_KEY
 

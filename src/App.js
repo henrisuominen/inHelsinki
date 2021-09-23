@@ -4,7 +4,7 @@ import Map from './components/Map.js'
 import EventPopup from './components/EventPopup.js'
 import SidePanel from './components/SidePanel.js'
 
-import './App.css'
+import './styles.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

@@ -3,7 +3,7 @@ import FilterButton from './FilterButton.js'
 
 const SidePanel = ({ tags, tagFilter, setTagFilter, type }) => (
 	<div className='sidePanel' >
-		<h2 className='tagTitle'>Helsinki Activities</h2>
+		<h2 className='tagTitle'>inHelsinki Activities</h2>
 		<div className='filterButton'>
 			This page displays activities available in Helsinki! 
 			It uses information from MyHelsinki Open API. {/*https://open-api.myhelsinki.fi*/}

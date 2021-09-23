@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import CloseButton from 'react-bootstrap/CloseButton'
 
 const EventImage = ({media}) => {
@@ -34,6 +34,7 @@ const DisplayPrice = ({lower, upper}) => {
 }
 
 const EventSummary = ({event, userLocation}) => {
+
 	var distance = undefined
 		if(userLocation !== undefined) {
 			distance = Math.sqrt((event.address.location.long - userLocation.coords.longitude)**2 + (event.address.location.lat - userLocation.coords.latitude)**2) * 111
@@ -59,6 +60,9 @@ const EventSummary = ({event, userLocation}) => {
 
 const EventPopup = ({ event, setEvent }) => {
 	const [userLocation, setUserLocation] = useState()
+
+	// Geolocate the user
+	useEffect(() => {navigator.geolocation.getCurrentPosition((location) => {setUserLocation(location)})})
 
 	if (event !== undefined) {
 		console.log(event)

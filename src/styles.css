@@ -36,7 +36,7 @@
 
 .active {
   background-color: orange;
-  color:black;
+  color: black;
 }
 
 .tagTitle {
@@ -48,7 +48,7 @@
   padding: 5px;
   border-radius: 2%;
   margin: 2%;
-  position: absolute; 
+  position: absolute;
   max-height: 50%;
   width: 20%;
   min-width: 160px;
@@ -64,20 +64,20 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 5px;
   position: absolute;
-  height: 80%; 
-  width: 80%; 
+  height: 80%;
+  width: 80%;
   right: 10%;
   top: 10%;
   z-index: 1;
   background-color: #f5eec2;
   border-width: 2px;
   overflow: scroll;
-  padding:20px;
+  padding: 20px;
 }
 
 .popupCloseButton {
-  position:absolute;
-  right:20px;
+  position: absolute;
+  right: 20px;
 }
 
 .tags {
@@ -87,7 +87,7 @@
 
 .eventImage {
   text-align: center;
-  padding:10px;
+  padding: 10px;
 }
 
 h2 {

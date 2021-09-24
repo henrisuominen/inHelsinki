@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import GoogleMapReact from 'google-map-react'
 import useSupercluster from 'use-supercluster'
+
 require('dotenv').config()
 
 const APIkey = process.env.REACT_APP_MAP_API_KEY
@@ -8,8 +9,8 @@ const APIkey = process.env.REACT_APP_MAP_API_KEY
 const Marker = ({ handleMarkerClick }) => {
   const MARKER_SIZE = '30'
   return (
-    <div onClick={handleMarkerClick} style={{ transform: 'translate(-' + MARKER_SIZE / 2 + 'px, -' + MARKER_SIZE + 'px)' }} >
-      <img src="./images/mapMarkerOnRing.png" alt='missing' width={MARKER_SIZE + 'px'} height={MARKER_SIZE + 'px'} />
+    <div onClick={handleMarkerClick} style={{ transform: `translate(-${MARKER_SIZE / 2}px, -${MARKER_SIZE}px)` }}>
+      <img src="./images/mapMarkerOnRing.png" alt="missing" width={`${MARKER_SIZE}px`} height={`${MARKER_SIZE}px`} />
     </div>
   )
 }
@@ -24,10 +25,10 @@ const Map = ({ filteredData, setEvent }) => {
   }
 
   const points = filteredData.map((row) => ({
-    type: "rowPoint",
-    properties: { cluster: false, pointId: row.id, row: row },
+    type: 'rowPoint',
+    properties: { cluster: false, pointId: row.id, row },
     geometry: {
-      type: "Point",
+      type: 'Point',
       coordinates: [
         parseFloat(row.address.location.long),
         parseFloat(row.address.location.lat)
@@ -53,7 +54,7 @@ const Map = ({ filteredData, setEvent }) => {
   }
 
   return (
-    <div className='map'>
+    <div className="map">
       <GoogleMapReact
         bootstrapURLKeys={{ key: APIkey }}
         defaultCenter={{ lat: 60.16, lng: 24.92 }}
@@ -63,7 +64,7 @@ const Map = ({ filteredData, setEvent }) => {
         onGoogleApiLoaded={({ map }) => { mapRef.current = map }}
         onChange={adjustMapBounds}
       >
-        {clusters.map(cluster => {
+        {clusters.map((cluster) => {
           const [longitude, latitude] = cluster.geometry.coordinates
           const {
             cluster: isCluster,
@@ -74,18 +75,18 @@ const Map = ({ filteredData, setEvent }) => {
           if (isCluster) {
             return (
               <div
-                key={'cluster-' + cluster.id}
+                key={`cluster-${cluster.id}`}
                 lat={latitude}
                 lng={longitude}
               >
                 <div
                   className="cluster-marker"
                   style={{
-                    width: clusterDim + 'px',
-                    height: clusterDim + 'px',
-                    transform: 'translate(-' + clusterDim / 2 + 'px, -' + clusterDim / 2 + 'px)'
+                    width: `${clusterDim}px`,
+                    height: `${clusterDim}px`,
+                    transform: `translate(-${clusterDim / 2}px, -${clusterDim / 2}px)`
                   }}
-                  onClick={() => {}}
+                  onClick={() => { }}
                 >
                   {pointCount}
                 </div>
@@ -95,19 +96,17 @@ const Map = ({ filteredData, setEvent }) => {
 
           return (
             <Marker
-              key={'point-' + cluster.properties.pointId}
+              key={`point-${cluster.properties.pointId}`}
               handleMarkerClick={() => handleMarkerClick(cluster.properties.row)}
               // Shift points at identical locations
               lat={latitude + parseInt(cluster.properties.row.id.substr(0, 4), 16) / 655350000}
               lng={longitude + parseInt(cluster.properties.row.id.substr(4, 4), 16) / 655350000}
-            >
-            </Marker>
+            />
           )
         })}
       </GoogleMapReact>
     </div>
   )
 }
-
 
 export default Map

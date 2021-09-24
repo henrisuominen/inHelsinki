@@ -1,0 +1,24 @@
+module.exports = {
+  env: {
+    es2021: true,
+    node: true
+  },
+  extends: [
+    'plugin:react/recommended',
+    'standard'
+  ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true
+    },
+    ecmaVersion: 12,
+    sourceType: 'module'
+  },
+  plugins: [
+    'react'
+  ],
+  rules: {
+    'no-unused-vars': 'off',
+    'react/prop-types': 'off'
+  }
+}

@@ -65,8 +65,6 @@ const EventPopup = ({ event, setEvent }) => {
 	useEffect(() => {navigator.geolocation.getCurrentPosition((location) => {setUserLocation(location)})})
 
 	if (event !== undefined) {
-		console.log(event)
-
 		const description = event.descriptions.en
 		return (
 			<div className='EventPopup'>
@@ -85,7 +83,7 @@ const EventPopup = ({ event, setEvent }) => {
 
 				<hr></hr>
 			
-				<div className='tags' style={{marginTop:'20px'}}>
+				<div className='tags'>
 					{event.tags.map((tag, i) => <div key={i} className= 'filterButton active' > {tag.replaceAll("_", " ")} </div>)}
 				</div>
 

@@ -29,10 +29,10 @@ const App = () => {
   const filteredData = (tagFilter.length == 0) ? validatedData : validatedData?.filter((row) => row.tags.some((tag) => tagFilter.includes(tag)))
 
   return (
-  <div style={{position: 'relative', height: '100%', width: '100%', zIndex: 0}}>
+  <div className='main'>
     <SidePanel tags={uniqueTags} tagFilter={tagFilter} setTagFilter={setTagFilter} />
     <EventPopup event={event} setEvent={setEvent}/>
-    <Map filteredData={filteredData} setEvent={setEvent}/>
+    {(filteredData !== undefined) ? <Map filteredData={filteredData} setEvent={setEvent}/> : <div></div> /* change to loading screen*/}
   </div>
 )}
 

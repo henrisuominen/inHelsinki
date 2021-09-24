@@ -1,15 +1,39 @@
+.errorMessage {
+  color: #416a59;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
+  position: absolute;
+  height: 20%;
+  width: 60%;
+  top: 40%;
+  left: 20%;
+  border-width: 2px;
+  overflow: scroll;
+  padding: 20px;
+  text-align: center;
+}
+
+.loadingSceen {
+  background-color: #f5eec2;
+  height: 100vh;
+  width: 100%;
+}
+
 .sidePanel {
   position: relative;
 }
 
-.filterButton {
+.filterItem {
   display: inline-block;
   margin: 5px;
   padding: 5px;
   background-color: #a9c25d;
   border-radius: 5px;
-  text-transform: capitalize;
   color: #416a59;
+}
+
+.filterButton {
+  text-transform: capitalize;
 }
 
 .map {

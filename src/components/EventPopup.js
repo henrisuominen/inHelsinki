@@ -40,19 +40,16 @@ const EventSummary = ({ event, userLocation }) => {
     <div className="eventSummary">
       <DisplayPrice lower={event.priceEUR.from} upper={event.priceEUR.to} />
       <div>
-        Address:
-        {event.address.streetName}
+        Address: {event.address.streetName}
       </div>
       <div>
-        Url:
-        <a href={event.siteUrl}>{event.siteUrl}</a>
+        Url: <a href={event.siteUrl}>{event.siteUrl}</a>
       </div>
       <div>
         {event.duration > 0 ? ('Duration: ' + event.duration + (event.duration < 24 ? 'h' : 'm')) : ''}
       </div>
       <div>
-        Distance:
-        {distance !== undefined ? distance.toFixed(1) + 'km' : 'Please Enable Location Services To Calculate Distance'}
+        Distance: {distance !== undefined ? distance.toFixed(1) + ' km' : ' Please Enable Location Services To Calculate Distance'}
       </div>
     </div>
   )
@@ -85,7 +82,7 @@ const EventPopup = ({ event, setEvent }) => {
 
         <div className="tags">
           {event.tags.map((tag, i) => (
-            <div key={i} className="filterButton active">
+            <div key={i} className="filterButton filterItem active">
               {('' + tag).replaceAll('_', ' ')}
             </div>
           ))}

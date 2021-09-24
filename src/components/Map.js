@@ -10,7 +10,7 @@ const Marker = ({ handleMarkerClick }) => {
   const MARKER_SIZE = '30'
   return (
     <div onClick={handleMarkerClick} style={{ transform: `translate(-${MARKER_SIZE / 2}px, -${MARKER_SIZE}px)` }}>
-      <img src="./images/mapMarkerOnRing.png" alt="missing" width={`${MARKER_SIZE}px`} height={`${MARKER_SIZE}px`} />
+      <img src="./images/mapMarkerOnRing.png" alt="missing" width={MARKER_SIZE + 'px'} height={MARKER_SIZE + 'px'} />
     </div>
   )
 }
@@ -72,6 +72,16 @@ const Map = ({ filteredData, setEvent }) => {
           } = cluster.properties
 
           const clusterDim = 20 + (pointCount / points.length) * 20
+
+          const onClusterZoom = () => {
+            const expansionZoom = Math.min(
+              supercluster.getClusterExpansionZoom(cluster.id),
+              25
+            )
+            mapRef.current.setZoom(expansionZoom)
+            mapRef.current.panTo({ lat: latitude, lng: longitude })
+          }
+
           if (isCluster) {
             return (
               <div
@@ -82,11 +92,11 @@ const Map = ({ filteredData, setEvent }) => {
                 <div
                   className="cluster-marker"
                   style={{
-                    width: `${clusterDim}px`,
-                    height: `${clusterDim}px`,
+                    width: clusterDim + 'px',
+                    height: clusterDim + 'px',
                     transform: `translate(-${clusterDim / 2}px, -${clusterDim / 2}px)`
                   }}
-                  onClick={() => { }}
+                  onClick={onClusterZoom}
                 >
                   {pointCount}
                 </div>

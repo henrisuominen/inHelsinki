@@ -6,7 +6,7 @@ const SidePanel = ({
 }) => (
   <div className="sidePanel">
     <h2 className="tagTitle">inHelsinki Activities</h2>
-    <div className="filterButton">
+    <div className="filterItem">
       This page displays activities available in Helsinki!
       It uses information from MyHelsinki Open API.
       {' '}

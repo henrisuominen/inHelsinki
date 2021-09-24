@@ -4,6 +4,7 @@ import Map from './components/Map.js'
 import EventPopup from './components/EventPopup.js'
 import SidePanel from './components/SidePanel.js'
 import LoadingScreen from './components/LoadingScreen.js'
+import ErrorMessage from './components/ErrorMessage.js'
 
 import './styles.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -11,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const App = () => {
   const [data, setData] = useState()
   const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState()
   const [tagFilter, setTagFilter] = useState([])
   const [event, setEvent] = useState()
 
@@ -20,6 +22,7 @@ const App = () => {
     axios
       .get(url)
       .then((response) => setData(response.data))
+      .catch(setError)
       .finally(() => setIsLoading(false))
   }
 
@@ -33,6 +36,10 @@ const App = () => {
 
   if (isLoading) {
     return <LoadingScreen />
+  }
+
+  if (error) {
+    return <ErrorMessage error={error} />
   }
 
   return (

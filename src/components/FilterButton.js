@@ -15,7 +15,7 @@ const FilterButton = ({ tag, tagFilter, setTagFilter }) => {
 
   return (
     <div className={'filterButton filterItem' + (active ? ' active' : '')} onClick={() => handleTagClick(tag)}>
-      {tag.replace(/_/g, ' ')} 
+      {tag.replace(/_/g, ' ')}
     </div>
   )
 }

@@ -83,7 +83,7 @@ const EventPopup = ({ event, setEvent }) => {
         <div className="tags">
           {event.tags.map((tag, i) => (
             <div key={i} className="filterButton filterItem active">
-              {('' + tag).replaceAll('_', ' ')}
+              {('' + tag).replace(/_/g, ' ')}
             </div>
           ))}
         </div>

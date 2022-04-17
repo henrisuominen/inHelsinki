@@ -13,14 +13,14 @@ const DisplayPrice = ({ lower, upper }) => {
     [lower, upper] = [upper, lower]
   }
 
-  if (lower === upper) {
-    if (lower === 0) {
-      priceText += 'Free!'
-    } else {
-      priceText += `${lower}€`
-    }
+  if (lower == null & upper == null) {
+    return null
+  } else if (lower == null | lower === upper) {
+    priceText += (`${upper}€`)
+  } else if (upper == null) {
+    priceText += (`${lower}€`)
   } else {
-    priceText += (`${lower.toString()}€` + ` - ${upper.toString()}€`)
+    priceText += (`${lower}€` + ` - ${upper}€`)
   }
 
   return (

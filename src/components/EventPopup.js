@@ -43,7 +43,7 @@ const EventSummary = ({ event, userLocation }) => {
         Address: {event.address.streetName}
       </div>
       <div>
-        Url: <a href={event.siteUrl}>{event.siteUrl}</a>
+        Website: <a href={event.siteUrl}>{event.siteUrl}</a>
       </div>
       <div>
         {event.duration > 0 ? ('Duration: ' + event.duration + (event.duration < 24 ? 'h' : 'm')) : ''}
